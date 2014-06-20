@@ -1,0 +1,29 @@
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="stylin.css">
+	<link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script type="text/javascript" src='https://ajax.googleapis.com/ajax/libs/angularjs/1.2.18/angular.min.js'></script>
+	<script type="text/javascript" src='//maxcdn.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js'></script>
+	
+	<script type="text/javascript" src='app.js'></script>
+	<title>Dinger</title>
+</head>
+<body ng-app>
+	<div class='git-wrapper'>
+		<i class='fa fa-github-alt git-icon'></i>
+	</div>
+	<div class='title'>
+		<h1>Dinger</h1>
+		<h3>The artificially intelligent George Ding chatbot</h3>
+	</div>
+	<div class='text-div' ng-controller='dingerController'>
+		<form ng-submit='hitEnter()'>
+			<input type='text' autofocus='true' id='text-input' placeholder='say hi!' ng-model="answer"><br>
+		</form>
+		{{answer}} <br>
+		{{ding}}
+	</div>
+</body>
+</html>

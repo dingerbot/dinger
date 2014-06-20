@@ -1,0 +1,27 @@
+.text-div {
+	text-align: center;
+}
+
+#text-input {
+	width: 600px;
+	height: 40px;
+	font-size: 25px;
+}
+
+.title {
+	text-align: center;
+}
+
+.git-icon {
+	font-size: 100px;
+	color: black;
+	transition: color .3s ease-in-out;
+}
+
+.git-icon:hover {
+	color: #2E9AFE;
+}
+
+.git-wrapper {
+	text-align: center;
+}

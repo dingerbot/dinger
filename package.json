@@ -1,0 +1,22 @@
+{
+  "name": "dinger",
+  "version": "0.0.0",
+  "description": "dinger ======",
+  "main": "Gruntfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hongj77/dinger.git"
+  },
+  "author": "Hong Jeon",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hongj77/dinger/issues"
+  },
+  "homepage": "https://github.com/hongj77/dinger",
+  "devDependencies": {
+    "grunt": "^0.4.5"
+  }
+}

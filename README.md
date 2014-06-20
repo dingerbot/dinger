@@ -1,4 +1,4 @@
 dinger
 ======
 
-Artificially intelligent George Ding chatbot
+new secret project underway--
