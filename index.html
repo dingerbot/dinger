@@ -12,7 +12,9 @@
 </head>
 <body ng-app>
 	<div class='git-wrapper'>
-		<i class='fa fa-github-alt git-icon'></i>
+		<a href="https://github.com/hongj77/dinger">
+			<i class='fa fa-github-alt git-icon' data-toggle="tooltip" data-placement="right" title="Check it out on GitHub!"></i>
+		</a>
 	</div>
 	<div class='title'>
 		<h1>Dinger</h1>
@@ -20,10 +22,13 @@
 	</div>
 	<div class='text-div' ng-controller='dingerController'>
 		<form ng-submit='hitEnter()'>
-			<input type='text' autofocus='true' id='text-input' placeholder='say hi!' ng-model="answer"><br>
-		</form>
-		{{answer}} <br>
+			<input type='text' autofocus='true' id='text-input' placeholder='say hi!' ng-model="answer">
+		</form><br>
 		{{ding}}
 	</div>
 </body>
+
+<script type="text/javascript">
+	$('.git-icon').tooltip();
+</script>
 </html>
