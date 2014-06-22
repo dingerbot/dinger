@@ -10,22 +10,31 @@
 	<script type="text/javascript" src='app.js'></script>
 	<title>Dinger</title>
 </head>
-<body ng-app>
+<body ng-app ng-controller='dingerController'>
+
 	<div class='git-wrapper'>
 		<a href="https://github.com/hongj77/dinger">
-			<i class='fa fa-github-alt git-icon' data-toggle="tooltip" data-placement="right" title="Check it out on GitHub!"></i>
+			<i class='fa fa-github-alt git-icon' data-toggle="tooltip" data-placement="right" title="How does it work?"></i>
 		</a>
 	</div>
+
 	<div class='title'>
 		<h1>Dinger</h1>
 		<h3>The artificially intelligent George Ding chatbot</h3>
 	</div>
-	<div class='text-div' ng-controller='dingerController'>
+
+	<div class='text-div'>
 		<form ng-submit='hitEnter()'>
 			<input type='text' autofocus='true' id='text-input' placeholder='say hi!' ng-model="answer">
 		</form><br>
-		{{ding}}
 	</div>
+
+	<div class="chat-wrapper">
+		<div id='chat'>	
+			
+		</div>
+	</div>
+
 </body>
 
 <script type="text/javascript">

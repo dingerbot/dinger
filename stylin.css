@@ -25,3 +25,16 @@
 .git-wrapper {
 	text-align: center;
 }
+
+.chat-wrapper {
+	width: 100%;
+}
+
+#chat {
+	width: 600px;
+	height: 200px;
+	margin-right: auto;
+	margin-left: auto;
+	margin-bottom: 40px;
+	background-color: rgba(0,0,0,0.3);
+}
