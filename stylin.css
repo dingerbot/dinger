@@ -30,11 +30,16 @@
 	width: 100%;
 }
 
-#chat {
+.chat-box {
 	width: 600px;
-	height: 200px;
+	max-height: 200px;
+	overflow: auto;
 	margin-right: auto;
 	margin-left: auto;
 	margin-bottom: 40px;
 	background-color: rgba(0,0,0,0.3);
+}
+
+#chat {
+	margin-left: 20px;
 }
