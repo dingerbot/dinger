@@ -1,7 +1,5 @@
 function dingerController($scope, $timeout) {
 
-	
-
 	$scope.hitEnter = function () {
 		if ($scope.answer) {
 			document.getElementById('text-input').disabled = true;
@@ -34,18 +32,21 @@ function dingerController($scope, $timeout) {
 				var node = document.createTextNode('George: ' + $scope.words.shift());
 				p.appendChild(node);
 				element.appendChild(p);
-				document.getElementById('text-input').disabled = false;
+				// document.getElementById('chat-box').scrollTop = document.getElementById('chat-box').scrollHeight;			
 				document.getElementById('text-input').focus();
 			}, interval);
-		}	
+
+			//textbox is unselected until george says his last msg
+			if (i == words.length-1) {
+				setTimeout(function() {
+					document.getElementById('text-input').disabled = false;
+					document.getElementById('text-input').focus();
+				}, interval);
+			}
+		}
 	}
 
 	function randomizer (word) {
 		return Math.round((Math.random() * 1000) + 200);
 	}
-
-
-
-
-
 }

@@ -1,6 +1,7 @@
 from Queue import Queue
 
 theFile = open('./georgedingconvo.txt')
+theFile = open('./blacklist.txt')
 
 hongQueries = Queue()
 georgeQueries = []
@@ -24,6 +25,7 @@ while line:
 		hongQueries.put(theFile.readline())
 		theFile.readline()
 	elif line[:11] == 'George Ding':
+		# check here if the line exact matches the blacklist
 		georgeQueries.append(theFile.readline()[:-1])
 		theFile.readline()
 	line = theFile.readline()
@@ -34,6 +36,3 @@ output = open('./juiced.js', 'w')
 output.write('var juiced = ')
 output.write(str(result))
 output.write(';')
-
-
-
