@@ -27,38 +27,46 @@
 }
 
 .chat-wrapper {
+	margin-top: -15px;
 	width: 100%;
 }
 
 #chat-box {
 	width: 600px;
-	min-height: 200px;
-	max-height: 200px;
+	min-height: 300px;
+	max-height: 300px;
 	overflow: auto;
 	margin-right: auto;
 	margin-left: auto;
 	margin-bottom: 40px;
-	background-color: rgba(0,0,0,0.3);
+	background-color: rgb(219,223,231);
 }
 
 #chat {
 	margin-left: 20px;
 }
 
-.george-chat-response {
-	font-size: 20px;
-	font-family: helvetica;
-	text-align:right;
-
-}
-
 .user-chat-query {
 	font-size: 20px;
-	font-family: helvetica;
+	font-family: tahoma;
 	text-align: left;
+	padding-left: 20px;
+	padding-top: 10px;
+}
+
+.george-chat-response {
+	font-size: 20px;
+	font-family: tahoma;
+	text-align:right;
+	padding-right: 20px;
+	padding-top: 10px;
+
 }
 
 .chat-padding-bottom {
 	padding: 10px 0;
 }
 
+.boot {
+	text-align: center;
+}
