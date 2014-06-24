@@ -30,7 +30,7 @@
 	width: 100%;
 }
 
-.chat-box {
+#chat-box {
 	width: 600px;
 	min-height: 200px;
 	max-height: 200px;
@@ -44,3 +44,21 @@
 #chat {
 	margin-left: 20px;
 }
+
+.george-chat-response {
+	font-size: 20px;
+	font-family: helvetica;
+	text-align:right;
+
+}
+
+.user-chat-query {
+	font-size: 20px;
+	font-family: helvetica;
+	text-align: left;
+}
+
+.chat-padding-bottom {
+	padding: 10px 0;
+}
+

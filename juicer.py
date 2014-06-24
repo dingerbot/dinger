@@ -1,10 +1,17 @@
 from Queue import Queue
 
 theFile = open('./georgedingconvo.txt')
-theFile = open('./blacklist.txt')
+# replace this file with your own blacklist file
+bList = open('./blacklist.txt')
 
 hongQueries = Queue()
 georgeQueries = []
+blackQueries = []
+
+for line in bList:
+	blackQueries.append(line[:-1])
+
+print '%r' % blackQueries
 
 # for i in theFile.length 
 endoffile = False
@@ -26,7 +33,14 @@ while line:
 		theFile.readline()
 	elif line[:11] == 'George Ding':
 		# check here if the line exact matches the blacklist
-		georgeQueries.append(theFile.readline()[:-1])
+		gdingyolo = theFile.readline()[:-1]
+
+		for black in blackQueries:
+			if black.lower() in gdingyolo.lower():
+				gdingyolo = 'blaze' #gdingyolo.lower().replace(black.lower(), 'blaze')
+
+		georgeQueries.append(gdingyolo)
+
 		theFile.readline()
 	line = theFile.readline()
 

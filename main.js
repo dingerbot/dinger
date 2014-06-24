@@ -2,47 +2,43 @@ function dingerController($scope, $timeout) {
 
 	$scope.hitEnter = function () {
 		if ($scope.answer) {
+			
+			var userTemplate = _.template( $('#user-template').html() );
+			$('.chat-padding-bottom').before( userTemplate({query: $scope.answer}) );
+			document.getElementById('chat-box').scrollTop = document.getElementById('chat-box').scrollHeight;
+
+			$scope.answer = '';
+			$('#text-input').attr('placeholder', '');
 			document.getElementById('text-input').disabled = true;
-			var p = document.createElement('p');
-			var node = document.createTextNode('You: ' + $scope.answer);
-			p.appendChild(node);
-			var element = document.getElementById('chat');
-			element.appendChild(p);
 
 			var possRespon = juiced[$scope.answer];
 			if (!possRespon || possRespon.length == 0 || possRespon[0].length == 0) {
 				possRespon = juiced[_.sample(Object.keys(juiced))];
 			}
-			postWords(possRespon[Math.floor(Math.random() * possRespon.length)]);
-
-			$scope.answer = '';
+			postResponse(possRespon);
 		}
 	};
 
-	function postWords (words) {
+	function postResponse (possRespon) {
 		var interval = 0;
+		var responseToPost = Math.floor(Math.random() * possRespon.length);
+		$scope.possRespon = possRespon;
 
-		for (var i = 0; i < words.length; i++) {
-			interval += randomizer(words[i]);
-			$scope.words = words;
+		for (var i = 0; i < $scope.possRespon[responseToPost].length; i++) {
+			interval += randomizer($scope.possRespon[responseToPost][i]);
 
 			$timeout(function() {
-				var element = document.getElementById('chat');
-				var p = document.createElement('p');
-				var node = document.createTextNode('George: ' + $scope.words.shift());
-				p.appendChild(node);
-				element.appendChild(p);
-				// document.getElementById('chat-box').scrollTop = document.getElementById('chat-box').scrollHeight;			
-				document.getElementById('text-input').focus();
-			}, interval);
+				var georgeTemplate = _.template($('#george-template').html());
+				$('.chat-padding-bottom').before( georgeTemplate( {response: $scope.possRespon[responseToPost].shift()} ) );
 
-			//textbox is unselected until george says his last msg
-			if (i == words.length-1) {
-				setTimeout(function() {
+				document.getElementById('chat-box').scrollTop = document.getElementById('chat-box').scrollHeight;
+
+				if($scope.possRespon[responseToPost].length == 0){
+					$scope.possRespon.splice(responseToPost, 1);
 					document.getElementById('text-input').disabled = false;
 					document.getElementById('text-input').focus();
-				}, interval);
-			}
+				}
+			}, interval);
 		}
 	}
 
