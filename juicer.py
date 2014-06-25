@@ -35,11 +35,13 @@ while line:
 		# check here if the line exact matches the blacklist
 		gdingyolo = theFile.readline()[:-1]
 
+		blist = False
 		for black in blackQueries:
 			if black.lower() in gdingyolo.lower():
-				gdingyolo = 'blaze' #gdingyolo.lower().replace(black.lower(), 'blaze')
+				blist = True
 
-		georgeQueries.append(gdingyolo)
+		if not blist:
+			georgeQueries.append(gdingyolo)
 
 		theFile.readline()
 	line = theFile.readline()

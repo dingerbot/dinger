@@ -1,55 +1,63 @@
 <html>
 <head>
-	<link rel="stylesheet" type="text/css" href="stylin.css">
-	<link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	<script type="text/javascript" src='https://ajax.googleapis.com/ajax/libs/angularjs/1.2.18/angular.min.js'></script>
+	<link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 	<script type="text/javascript" src='//maxcdn.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js'></script>
 	<script type="text/javascript" src='http://underscorejs.org/underscore.js'></script>
+
+	<link rel="stylesheet" type="text/css" href="stylin.css">
 	<script type="text/javascript" src='juiced.js'></script>
-	
 	<script type="text/javascript" src='main.js'></script>
-	<title>Dinger</title>
+
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300|Exo+2:400,700' rel='stylesheet' type='text/css'>
+		
+	<title>Dinger, the artificially intelligent George Ding chatbot</title>
 </head>
+
 <body ng-app ng-controller='dingerController'>
 
-	<div class='git-wrapper'>
-		<a href="https://github.com/hongj77/dinger">
-			<i class='fa fa-github-alt git-icon' data-toggle="tooltip" data-placement="right" title="How does it work?"></i>
-		</a>
-	</div>
-
-	<div class='title'>
-		<h1>Dinger</h1>
-		<h3>The artificially intelligent George Ding chatbot</h3>
-	</div>
-
-	<div class='text-div'>
-		<form ng-submit='hitEnter()'>
-			<input type='text' autofocus='true' id='text-input' placeholder='chat with george!' ng-model="answer">
-		</form><br>
-	</div>
-
-	<div class="chat-wrapper">
-		<div id='chat-box'>
-			<div class='chat-padding-bottom'></div>
+	<div class='container text-center'>
+		
+		<a href="https://github.com/hongj77/dinger"><i class='fa fa-github-alt git-icon' data-toggle="tooltip" data-placement="left" title="How does it work?"></i></a> 
+		<h1>Dinger</h1><small class='text-muted'>v1.0</small>
+	
+		<div class="row">
+			<h3>The artificially intelligent George Ding chatbot.</h3>	
 		</div>
+	
+		<div class='row'>
+			<form ng-submit='hitEnter()'>
+				<input type='text' id='text-input' autofocus='true' placeholder='chat with george!' ng-model="answer">
+			</form>
+		</div>
+	
+		<div class="row">
+			<div id='chat-box'>
+				<div class='chat-padding-top'></div>
+				<div class='chat-padding-bottom'></div>
+			</div>
+		</div>
+	</div> <!-- container-fluid -->
+
+	<hr>
+	<div class='footer text-center'>
+		<p><small class='text-muted'>&copy <a href="http://www.hongjeon.com">Hong Jeon</a> & <a href="http://www.jeffterry.net">Jeffrey Terry</a></p></small>
 	</div>
-
-	<script type="text/template" id='george-template'>
-		<div class='george-chat-response'>
-			<%= response %>
-		</div>
-	</script>
-
-	<script type="text/template" id='user-template'>
-		<div class='user-chat-query'>
-			<%= query %>
-		</div>
-	</script>
 
 </body>
+
+<script type="text/template" id='george-template'>
+	<div class='george-chat-response text-right'>
+			<span class='bubble-1'><%= response %></span> &nbsp <img src='ding.jpg' height=35 width=35 class='img-rounded'>
+	</div>
+</script>
+<script type="text/template" id='user-template'>
+	<div class='user-chat-query text-left'>
+		<span class='bubble-2'><%= query %></span>
+	</div>
+</script>
 
 <script type="text/javascript">
 	$(document).ready(function(){

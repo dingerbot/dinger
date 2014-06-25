@@ -51,6 +51,6 @@ function dingerController($scope, $timeout) {
 	}
 
 	function randomizer (word) {
-		return Math.round((Math.random() * 1000) + word.length*20);
+		return Math.floor((Math.random() * 800) + word.length*55); //used to be +200
 	}
 }

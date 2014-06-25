@@ -5,7 +5,6 @@ jeannine
 jeanney
 jeanniefu
 jeanie
-jeanney
 jeanny
 jeannieu
 jeannei
@@ -17,7 +16,6 @@ mei
 maple
 mapes
 maps
-maples
 annie
 fan
 kelly
@@ -35,3 +33,5 @@ amy
 wang
 lam
 500
+eunu
+distance
