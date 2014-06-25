@@ -35,6 +35,7 @@ while line:
 		# check here if the line exact matches the blacklist
 		gdingyolo = theFile.readline()[:-1]
 
+		# don't include lines that have the words in the blacklist
 		blist = False
 		for black in blackQueries:
 			if black.lower() in gdingyolo.lower():

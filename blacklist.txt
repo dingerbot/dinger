@@ -35,3 +35,4 @@ lam
 500
 eunu
 distance
+yezy
