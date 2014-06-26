@@ -17,36 +17,82 @@ function dingerController($scope, $timeout) {
 
 			// if no matches, start version 2 intelligence
 			if (!possRespon) {
-				var ansFragments = $scope.answer.split('');
+				console.log('hi');
+				var queryWords = $scope.answer.replace(/[^A-Za-z\s]/g, '').toLowerCase().split(' ');
+				console.log(queryWords);
+
 				//ok we have each individual leters
 				//lets do 2 letters at a time
 				var allKeys = _.keys(juiced); 
-				console.log(allKeys);
 
-				var twos = [];
-				for (var i = 0; i < ansFragments.length; i+=2) {
-					if (i != ansFragments.length-1) {
-						twos.push(''+ ansFragments[i]+ansFragments[i+1]);
-					} else {
-						twos.push('' + ansFragments[i]);
-					}
-				}
-				console.log(twos);
-
-				var testing = {'its': 'hi','hello':'wrong'};
-				var pattern = 'its';
-				var re = new RegExp(pattern);
-				console.log(testing[re]); //expecting 'hi', returned undefined
-
-				// for (var i = 0; i < allKeys.length; i++) {
-				// 	console.log('hi');
+				// var queryWords = [];
+				// for (var i = 0; i < ansFragments.length; i+=2) {
+				// 	if (i != ansFragments.length-1) {
+				// 		queryWords.push(''+ ansFragments[i]+ansFragments[i+1]);
+				// 	} else {
+				// 		queryWords.push('' + ansFragments[i]);
+				// 	}
 				// }
 
-				//try to match all, take 2 from back, and try to match regex and repeat until no matches
-				// var pattern = '.*' + twos.join('') + '.*';
-				// var re = new RegExp(pattern);
+				console.log(queryWords);
 
-				
+				var counts = [];
+				var prev = -1;
+				var whitelist = 'how what when where why did who are'
+				// var current;
+				var splitKeys;
+				var increment;
+				var isQuestion;
+				for (var i = 0; i < allKeys.length; i++) {
+					splitKeys = allKeys[i].toLowerCase().split(' ');
+					counts[i] = 0;
+					prev = 0;
+					for (var j = 0; j < queryWords.length; j++) {
+						increment = 1;
+						isQuestion = false;
+						if (j == 0 && whitelist.indexOf(queryWords[0]) != -1 && splitKeys[0] == queryWords[0]) {
+							increment = 3;
+							isQuestion = true;
+						}
+						if (j == queryWords.length/2) {
+							for (var d = 0; d < splitKeys.length; d++) {
+								if (allKeys[j] == queryWords[queryWords.length/2]) {
+									increment += 1.5;
+								}
+							}
+						}
+						if (isQuestion && splitKeys[splitKeys.length-1] == queryWords[queryWords.length-1]) {
+							increment += 2;
+						} 
+
+						for (var k = prev; k < splitKeys.length; k++) {
+							if(splitKeys[k] == queryWords[j] && k >= prev) {
+								prev = k;
+								counts[i] += increment;
+								break;
+							}
+						}
+						// current = allKeys[i].indexOf(queryWords[j]);
+						// if(current > prev) {
+						// 	counts[i]++;
+						// 	prev = current;
+						// }
+					}
+				}
+
+				var maxIndex = 0;
+				for (var i = 1; i < counts.length; i++){
+					if(counts[i] > counts[maxIndex]) {
+						maxIndex = i;
+					} 
+				}
+				console.log('counts', counts[maxIndex]);
+
+				console.log('what it blazin: ', allKeys[maxIndex]);
+				if (counts[maxIndex] != 0) {
+					console.log('jucied,', juiced[allKeys[maxIndex]]);
+					possRespon = juiced[allKeys[maxIndex]];					
+				}
 			}
 
 			//if no matches,response is 0, or array is empty, pick random from all possible

@@ -20,9 +20,11 @@
 
 	<div class='container text-center'>
 		
-		<a href="https://github.com/hongj77/dinger"><i class='fa fa-github-alt git-icon' data-toggle="tooltip" data-placement="left" title="How does it work?"></i></a> 
-		<h1>Dinger</h1><small class='text-muted'>v1.0</small>
-	
+		<div class="row top">
+			<a href="https://github.com/hongj77/dinger"><i class='fa fa-github-alt git-icon' data-placement="left" title="How does it work?"></i></a> 
+			<h1>Dinger</h1><small class='text-muted'>v1.0</small>
+		</div>
+
 		<div class="row">
 			<h3>The artificially intelligent George Ding chatbot.</h3>	
 		</div>
@@ -62,6 +64,13 @@
 <script type="text/javascript">
 	$(document).ready(function(){
 	 	$('.git-icon').tooltip();
+	 	$('.top').mouseenter(function() {
+	 		$('.git-icon').tooltip('show');
+	 	});
+	 	$('.top').mouseleave(function() {
+	 		$('.git-icon').tooltip('hide');
+	 	});
+	 	
 	});
 </script>
 </html>

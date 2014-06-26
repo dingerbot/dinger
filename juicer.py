@@ -29,7 +29,9 @@ while line:
 					result[hong].append(list(georgeQueries))
 			hongQueries.queue.clear()
 			del georgeQueries[:]
-		hongQueries.put(theFile.readline())
+		currentLine = theFile.readline()
+		if len(currentLine) < 50:
+			hongQueries.put(currentLine)
 		theFile.readline()
 	elif line[:11] == 'George Ding':
 		# check here if the line exact matches the blacklist
