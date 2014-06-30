@@ -78,7 +78,7 @@ function dingerController($scope, $timeout) {
 							for (var k = 0; k < whitelist.length; k++) {
 								matchPercentage = compareWords(whitelist[k],queryWords[0]);
 								if (matchPercentage > bourgeoisieThreash) {
-									increment += 3 * matchPercentage;
+									increment += 2.5 * matchPercentage;
 									isQuestion = true;
 								}
 							}
