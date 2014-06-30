@@ -31,7 +31,14 @@ while line:
 			del georgeQueries[:]
 		currentLine = theFile.readline()
 		if len(currentLine) < 50:
-			hongQueries.put(currentLine)
+			# don't include lines that have the words in the blacklist
+			blist = False
+			for black in blackQueries:
+				if black.lower() in currentLine.lower():
+					blist = True
+			if not blist:
+				hongQueries.put(currentLine)
+
 		theFile.readline()
 	elif line[:11] == 'George Ding':
 		# check here if the line exact matches the blacklist

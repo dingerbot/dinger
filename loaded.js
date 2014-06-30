@@ -1,1 +1,0 @@
-var lockednloaded =  ['I will show you suffering', 'youre an idiot'];
