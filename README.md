@@ -14,7 +14,7 @@ Dinger is a robot designed to immitate the colorful vocabulary and speech patter
 
 ##What are these files?
 ###juicer.py
-It looks at every single line in a file that contains the messages in Facebook's archive format, parses the neccesarry information, and creates `juiced.js`. `juiced.js` is a giant javascript object that contains what I have said to him previously as key and what he responded with as the value. If he responded multiple times, all of the answers are stored in an array. Since some messages were meant to be private, `juicer.py` uses a filter `blacklist.txt` to exclude lines that contains the words in the blacklist. 
+It looks at every single line in a file that contains the messages in Facebook's archive format, parses the necessary information, and creates `juiced.js`, a giant javascript object that contains what I have said to him previously as key and what he responded with as the value. If he responded multiple times, all of the answers are stored in an array. Since some messages were meant to be private, `juicer.py` uses a filter `blacklist.txt` to exclude lines that contains the words in the blacklist. 
 
 ###main.js
 Contains the AngularJS controller 'dingerController' that houses the main algorithm and functions to manipulate the DOM. 
