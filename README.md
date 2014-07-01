@@ -5,7 +5,9 @@ No? Well now you can! <br>
 Start your chat at http://hongjeon.com/dinger/index.html
  
 ## What is Dinger?
-Dinger is a robot designed to immitate the colorful vocabulary and speech patterns of George Ding. Dinger interprets your message by scaling through an archive of 30,000 Facebook messages and using a blaze algorithm to calculate the best matching query based on a score system (explained later). Dinger will then match the user's query with what I have said to George previously, and it will respond with the most relevant sequence of messages with which he replied. 
+Dinger is a robot designed to immitate the colorful vocabulary and speech patterns of George Ding. Dinger interprets your message by scaling through an archive of 30,000 Facebook messages and using a blaze algorithm to calculate the best matching query based on a score system (explained later). Dinger will then match the user's query with what I have said to George previously, and it will respond with the most relevant sequence of messages with which he replied. <br>
+
+NOTICE: The conversation is only from Sept - Feb. George has not learned the word "geed" yet.
 
 ##How does it match words?
 **Level 1:** the most basic of all string matching. Dinger tries an exact match. This will most likely fail.  <br>
