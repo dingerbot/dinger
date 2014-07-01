@@ -129,9 +129,9 @@ function dingerController($scope, $timeout) {
 						break;
 					}
 					//has to have a score within the variance of the maximum match
-					if (Math.abs(countsAndKeys[0][0] - countsAndKeys[i][0]) < variance) {
+					if (Math.abs(countsAndKeys[0][0] - countsAndKeys[i][0]) <= variance) {
 						bestKeyMatches.push(countsAndKeys[i][1]);
-						bestKeyCounts.push(countsAndKeys[i][0]);						
+						bestKeyCounts.push(countsAndKeys[i][0]);
 					}
 				}
 
